@@ -1,4 +1,7 @@
 create schema if not exists company;
+use company;
+
+--restrição atribuida a um dominio
 
 create table company.employee(
 Fname varchar(15) NOT NULL,
@@ -13,7 +16,9 @@ Super_ssn char (9),
 Dno int NOT NULL,
 primary key (Ssn)
 );
+
 use company;
+
 create table departament(
 Dname varchar(15) not null,
 Dnumber int not null,
@@ -59,3 +64,11 @@ Relationship varchar(8),
 primary key (Essn, Dependent_name),
 foreign key (Essn) references employee(Ssn)
 );
+
+show tables;
+desc dependent;
+
+--consulta
+select * from information_schema.table_constrainsts
+     where constraint_schema = 'company';
+     

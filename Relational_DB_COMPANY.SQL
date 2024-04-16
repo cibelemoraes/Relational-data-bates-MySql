@@ -14,6 +14,7 @@ SEX char,
 Salary decimal(10,2),
 Super_ssn char (9),
 Dno int NOT NULL,
+constraint chk_salary_employee check (Salary > 2000.0)
 primary key (Ssn)
 );
 
@@ -24,8 +25,9 @@ Dname varchar(15) not null,
 Dnumber int not null,
 Mgr_ssn char(9),
 Mgr_star_date Date,
-primary key (Dnumber),
-Unique (Dname),
+constraint chk_date_dept check (Dept_creat_date < Mgr_star_date),
+constraint pk_dept primary key (Dnumber),
+constraint unique_name_dept unique (Dname),
 foreign key (Mgr_ssn) references employee(Ssn)
 );
 
@@ -42,7 +44,7 @@ Pnumber  int not null,
 Plocation varchar(15),
 Dnum int not null,
 primary key (Pnumber),
-unique (Pnumber),
+constraint unique_project unique (Pname),
 foreign key (Dnum) references department(Dnumber)
 );
 

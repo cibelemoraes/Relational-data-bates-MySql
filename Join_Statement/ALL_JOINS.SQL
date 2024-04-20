@@ -29,3 +29,13 @@ select Dnumber, Dname, concat(Fname'', Lname), as Manager, Salary, round(Salary*
          INNER JOIN  EMPLOYEE ON Ssn = Mgr_ssn
          group by Pjname
          having count(*)>1;
+
+-- OUTER JOIN
+
+select * FROM Employee;
+select * FROM dependent;
+
+select * FROM Employee INNER JOIN dependent ON Ssn = Essn;
+select * FROM Employee left JOIN dependent ON Ssn = Essn;
+
+select * FROM Employee left OUTER JOIN dependent ON Ssn = Essn;

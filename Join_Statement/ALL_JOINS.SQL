@@ -25,7 +25,7 @@ select Dnumber, Dname, concat(Fname'', Lname), as Manager, Salary, round(Salary*
 -- DEPARTAMENT, PROJECT, EMPLOYEE
 
 select Dnumber, Dname, concat(Fname'', Lname), as Manager, Salary, round(Salary*0,5,2) as Bonus FROM DEPARTAMENT
-         INNER JOIN Project using(Pname)
+         INNER JOIN Project using(Pjname)
          INNER JOIN  EMPLOYEE ON Ssn = Mgr_ssn
-         group by Pname
+         group by Pjname
          having count(*)>1;

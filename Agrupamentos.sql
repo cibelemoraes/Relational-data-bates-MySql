@@ -45,6 +45,22 @@ select Pnumber, Pname, count(*)
 
 select COUNT(distinct Salary) 
     FROM Employee;
-    
+
 select sum(Salary) as total_sal, max (Salary) as total_sal, min (Salary) as Min_sal, avg(Salary) AS AVG_SAL
     FROM Employee
+
+
+-- CONTANDO INFORMAÇÃOES APARTIR DO TRABALHO ESPECIFICO PELO NOME DELES
+
+select Pnumber, Pname, count(*)
+  from project, works_on
+  where Pnumber = Pno
+  group by Pnumber = Pname;
+
+show tables; 
+
+select Pnumber, Pname, count(*) as Number_of_register, round(avg(Salary),2) as Avg_Salary
+   from project, works_on, employee
+   where Pnumber = Pno AND Ssn = Essn
+   group by Pnumber
+   order by Pnumber asc, avg(Salary) desc;
